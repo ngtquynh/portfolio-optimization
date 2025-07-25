@@ -23,7 +23,7 @@ def get_stock_data(tickers, start_date="2020-01-01", end_date=None):
     """
     try:
         # Download data, silencing yfinance output
-        data = yf.download(tickers, start=start_date, end=end_date, progress=False)['Adj Close']
+        data = yf.download(tickers, start=start_date, end=end_date, progress=False)['Close']
         # If only one ticker, it returns a Series, convert to DataFrame
         if isinstance(data, pd.Series):
             data = data.to_frame(name=tickers[0])
